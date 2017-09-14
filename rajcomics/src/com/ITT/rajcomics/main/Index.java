@@ -2,11 +2,13 @@ package com.ITT.rajcomics.main;
 
 import com.ITT.rajcomics.validator.*;
 
-class Index {
+public class Index {
+	Validator validator = new Validator();
 	public static void main(String[] args) {
 		Index index = new Index();
-		index.MainMenu();
+		index.mainMenu();
 	}
+
 /*	
  Menu options. 
 	Game_Manager
@@ -36,30 +38,38 @@ class Index {
 	Exit
 */
 	
-	public void MainMenu() {
-		String mainMenu = "Chose the appropriate option\n" + "1. Game Manager\n" + "2. Go to Arena\n"
-				+ "3. Exit\n";
+	public void mainMenu() {
+		String mainMenu = "Chose the appropriate option\n" + "1. Game Manager\n" + "2. Go to Arena\n" + "3. Exit\n";
 		System.out.println(mainMenu);
+		int numOptions = 3;
 		int option = -1;
-		switch(option){
+		while(option <= 0){
+			option = this.validator.validateOption(numOptions);
+		}
+		switch (option) {
 		case 1:
-			GameManagerMenu();
+			gameManagerMenu();
 			break;
 		case 2:
-			arenaMenu();
+			//arenaMenu();
 			break;
 		case 3:
-			Exit();
+			//Exit();
 			break;
 		}
 	}
-	
-	private void GameManagerMenu(){
+
+
+	private void gameManagerMenu() {
 		String menu = "Chose the appropriate option\n" + "1. Manage Charachters\n" + "2. Manager Attributes\n"
-	+"3. Return to Main Menu";
+				+ "3. Return to Main Menu";
 		System.out.println(menu);
+		int numOptions = 3;
 		int option = -1;
-		switch(option){
+		while(option <= 0){
+			option = this.validator.validateOption(numOptions);
+		}
+		switch (option) {
 		case 1:
 			manageCharacterMenu();
 			break;
@@ -67,74 +77,97 @@ class Index {
 			manageAttributeMenu();
 			break;
 		case 3:
-			//returnToMainMenu
+			// returnToMainMenu
 			break;
-		}
-	}
-	
-	private void manageCharacterMenu(){
-		String menu = "Chose the appropriate option\n" + "1. Display details\n" + "2. Add Characters\n" + "3. Remove Charachters"+  "4. Retutn to Game Manager";
-		int option = -1;
-		switch(option){
-		case 1:
-			displayCharacterDetails();
-			break;
-		case 2:
-			addCharacter();
-			break;
-		case 3: 
-			removeCharacter();
-			break;
-		case 4:
-			//returnToGameManager
-			break;
-		}
-	}
-	
-	private void manageAttributeMenu(){
-		String menu = "Chose the appropriate option\n" + "1. Add new Attributes\n" + "2. Remove new Attributes\n"+ "3. Return to Game Manager";
-		int options = -1;
-		switch(option){
-		case 1:
-			addAttribute();
-			break;
-		case 2:
-			removeAttribute();
-			break;
-		case 3:
-			//returnToGameManager
 		}
 	}
 
-	private void arenaMenu(){
-		String menu = "Chose the appropriate option\n" + "1. Start new Arena\n" + "2. Open a previous Arena";
+	private void manageCharacterMenu() {
+		//print list of names+ hero/villaain of character
+		String menu = "Chose the appropriate option\n" + "1. Display details\n" + "2. Add Characters\n"
+				+ "3. Remove Charachters" + "4. Retutn to Game Manager";
+		System.out.println(menu);
+		int numOptions = 4;
 		int option = -1;
-		switch(option){
-		case 1:
-			Arena arena = newArena();
-			break;
-		case 2:
-			Arena arena = openPreviousArena();
-			break;
-		case 3: 
-			//returnToMainMenu
-			break;
+		while(option <= 0){
+			option = this.validator.validateOption(numOptions);
 		}
-		//in arena
-		String inArenaMenu = "Chose the appropriate option\n" + "1. Manage Characters in\n" + "2. Organize Fight"+ "3. Save the Arena and return to go to arena Menu";
-		int inArenaMenuOption = -1;
-		switch(inArenaMenuOption){
+		switch (option) {
 		case 1:
-			manageCharacters();
+			//displayCharacterDetails();
 			break;
 		case 2:
-			organizeFight();
+			//addCharacter();
 			break;
 		case 3:
-			saveArena();
-			//to go to arena menu();
+			//removeCharacter();
 			break;
+		case 4:
+			// returnToGameManager
+			break;
+		}
+	}
+
+	private void manageAttributeMenu() {
+		String menu = "Chose the appropriate option\n" + "1. Add new Attributes\n" + "2. Remove new Attributes\n"
+				+ "3. Return to Game Manager";
+		System.out.println(menu);
+		int numOptions = 3;
+		int option = -1;
+		while(option <= 0){
+			option = this.validator.validateOption(numOptions);
+		}
+		switch (option) {
+		case 1:
+			//addAttribute();
+			break;
+		case 2:
+			//removeAttribute();
+			break;
+		case 3:
+			// returnToGameManager
+		}
+	}
+
+	private void arenaMenu() {
+		String menu = "Chose the appropriate option\n" + "1. Start new Arena\n" + "2. Open a previous Arena";
+		System.out.println(menu);
+		int numOptions = 2;
+		int option = -1;
+		while(option <= 0){
+			option = this.validator.validateOption(numOptions);
+		}
+		switch (option) {
+		case 1:
+			//Arena arena = newArena();
+			break;
+		case 2:
+			//Arena arena = openPreviousArena();
+			break;
+		case 3:
+			// returnToMainMenu
+			break;
+		}
+		// in arena
+		String inArenaMenu = "Chose the appropriate option\n" + "1. Manage Characters in\n" + "2. Organize Fight"
+				+ "3. Save the Arena and return to go to arena Menu";
+		System.out.println(inArenaMenu);
+		int numInArenaOptions = 3;
+		int inArenaMenuOption = -1;
+		while(option <= 0){
+			option = this.validator.validateOption(numInArenaOptions);
+		}
+		switch (inArenaMenuOption) {
+		case 1:
+			//manageCharacters();
+			break;
+		case 2:
+			//organizeFight();
+			break;
+		case 3:
+			//saveArena();
+			// to go to arena menu();
+			break;
+		}
 	}
 }
-}	
-	
