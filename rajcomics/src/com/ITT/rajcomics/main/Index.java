@@ -1,9 +1,11 @@
 package com.ITT.rajcomics.main;
 
+import com.ITT.rajcomics.db.*;
 import com.ITT.rajcomics.validator.*;
 
 public class Index {
 	Validator validator = new Validator();
+	DBInterface dbin = new DataBase();
 	public static void main(String[] args) {
 		Index index = new Index();
 		index.mainMenu();
@@ -51,15 +53,14 @@ public class Index {
 			gameManagerMenu();
 			break;
 		case 2:
-			//arenaMenu();
+			arenaMenu();
 			break;
 		case 3:
 			//Exit();
 			break;
 		}
 	}
-
-
+	
 	private void gameManagerMenu() {
 		String menu = "Chose the appropriate option\n" + "1. Manage Charachters\n" + "2. Manager Attributes\n"
 				+ "3. Return to Main Menu";
@@ -83,7 +84,8 @@ public class Index {
 	}
 
 	private void manageCharacterMenu() {
-		//print list of names+ hero/villaain of character
+		this.dbin.displayCharacterList();
+		//print list of names+ hero/villain of character
 		String menu = "Chose the appropriate option\n" + "1. Display details\n" + "2. Add Characters\n"
 				+ "3. Remove Charachters" + "4. Retutn to Game Manager";
 		System.out.println(menu);
