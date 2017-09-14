@@ -14,11 +14,12 @@ class Index {
 			Display	Detailed Table
 			Add new Heroes/Villains
 			Remove new Heroes/Villains
-			Return to Main Menu
+			Return to Game Manager 
 		Manager Attribute Table//list displayed automatically
 			Add new Attributes
 			Remove Attributes
-			Return to Main Menu
+			Return to Game Manager
+		Return to Main Menu
 	 Go to Arena
 		Start a New Arena
 		Open past Arena
@@ -31,12 +32,13 @@ class Index {
 		 	Organize fight
 			Go to main Menu
 			Save game and Exit
+			Return to Go to Arena Page
 	Exit
 */
 	
 	public void MainMenu() {
 		String mainMenu = "Chose the appropriate option\n" + "1. Game Manager\n" + "2. Go to Arena\n"
-				+ "3. Save and Exit\n";
+				+ "3. Exit\n";
 		System.out.println(mainMenu);
 		int option = -1;
 		switch(option){
@@ -47,13 +49,14 @@ class Index {
 			arenaMenu();
 			break;
 		case 3:
-			saveAndExit();
+			Exit();
 			break;
 		}
 	}
 	
 	private void GameManagerMenu(){
-		String menu = "Chose the appropriate option\n" + "1. Manage Charachters\n" + "2. Manager Attributes\n";
+		String menu = "Chose the appropriate option\n" + "1. Manage Charachters\n" + "2. Manager Attributes\n"
+	+"3. Return to Main Menu";
 		System.out.println(menu);
 		int option = -1;
 		switch(option){
@@ -63,11 +66,14 @@ class Index {
 		case 2:
 			manageAttributeMenu();
 			break;
+		case 3:
+			//returnToMainMenu
+			break;
 		}
 	}
 	
 	private void manageCharacterMenu(){
-		String menu = "Chose the appropriate option\n" + "1. Display details\n" + "2. Add Characters\n" + "3. Remove Charachters";
+		String menu = "Chose the appropriate option\n" + "1. Display details\n" + "2. Add Characters\n" + "3. Remove Charachters"+  "4. Retutn to Game Manager";
 		int option = -1;
 		switch(option){
 		case 1:
@@ -79,11 +85,14 @@ class Index {
 		case 3: 
 			removeCharacter();
 			break;
+		case 4:
+			//returnToGameManager
+			break;
 		}
 	}
 	
 	private void manageAttributeMenu(){
-		String menu = "Chose the appropriate option\n" + "1. Add new Attributes\n" + "2. Remove new Attributes\n";
+		String menu = "Chose the appropriate option\n" + "1. Add new Attributes\n" + "2. Remove new Attributes\n"+ "3. Return to Game Manager";
 		int options = -1;
 		switch(option){
 		case 1:
@@ -92,6 +101,8 @@ class Index {
 		case 2:
 			removeAttribute();
 			break;
+		case 3:
+			//returnToGameManager
 		}
 	}
 
@@ -105,9 +116,12 @@ class Index {
 		case 2:
 			Arena arena = openPreviousArena();
 			break;
+		case 3: 
+			//returnToMainMenu
+			break;
 		}
 		//in arena
-		String inArenaMenu = "Chose the appropriate option\n" + "1. Manage Characters in\n" + "2. Organize Fight"+ "3. Save the Arena and return to main Menu";
+		String inArenaMenu = "Chose the appropriate option\n" + "1. Manage Characters in\n" + "2. Organize Fight"+ "3. Save the Arena and return to go to arena Menu";
 		int inArenaMenuOption = -1;
 		switch(inArenaMenuOption){
 		case 1:
@@ -118,7 +132,7 @@ class Index {
 			break;
 		case 3:
 			saveArena();
-			toMainMenu();
+			//to go to arena menu();
 			break;
 	}
 }
